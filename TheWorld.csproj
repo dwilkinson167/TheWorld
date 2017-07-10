@@ -15,5 +15,8 @@
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFilesEx" Version="1.0.0.4" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
 
 </Project>
