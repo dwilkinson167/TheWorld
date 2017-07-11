@@ -21,5 +21,8 @@
   <ItemGroup>
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\App\About.cshtml" />
+  </ItemGroup>
 
 </Project>
