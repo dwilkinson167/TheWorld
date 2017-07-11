@@ -1,11 +1,22 @@
-﻿var ele = document.getElementById("username");
-ele.innerHTML = "Dylan Wilkinson"
+﻿(function () {
 
-var main = document.getElementById("main");
-main.onmouseenter = function () {
-    main.style.backgroundColor = "#888";
-};
 
-main.onmouseleave = function () {
-    main.style.backgroundColor = "";
-};
+    var ele = $("#username");
+    ele.innerHTML = "Dylan Wilkinson"
+
+    var main = $("#main");
+    main.on("mouseenter", function () {
+        main.style = "backgroundColor = #888;";
+    });
+
+    main.on("mouseleave", function () {
+        main.style = "";
+    });
+
+    var menuItems = $("ul.menu li a");
+    menuItems.on("click", function () {
+        var me = $(this);
+        alert(me.text());
+
+    });
+})();
