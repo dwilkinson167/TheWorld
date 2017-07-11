@@ -1,3 +1,5 @@
 {
-	
+  "MailSettings": {
+    "ToAddress": "Dylanwilkinson@gmail.com"
+  }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TheWorld.ViewModels;
 using TheWorld.Services;
+using Microsoft.Extensions.Configuration;
 
 namespace TheWorld.Controllers.Web
 {
@@ -13,20 +14,19 @@ namespace TheWorld.Controllers.Web
 
     {
         private IMailService _mailService;
+        private IConfigurationRoot _config;
 
-        public AppController(IMailService mailService)
+        public AppController(IMailService mailService, IConfigurationRoot config)
         {
             _mailService = mailService;
+            _config = config;
         }
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
-        {
-            return View();
-        }
+       
 
         public IActionResult Contact()
         {
@@ -35,8 +35,22 @@ namespace TheWorld.Controllers.Web
         [HttpPost]
         public IActionResult Contact(ContactViewModel model)
         {
-            _mailService.SendMail("Dylanwilkinson@gmail.com", model.Email, "From TheWorld", model.Message);
+            if (model.Email.Contains("aol.com")) ModelState.AddModelError("Email", "We Dont support AOL Addresses");
 
+            if (ModelState.IsValid)
+            {
+
+                _mailService.SendMail(_config["MailSettings:ToAddress"], model.Email, "From TheWorld", model.Message);
+            }
+            ModelState.Clear();
+
+            ViewBag.UserMessage = "Message Sent";
+
+            return View();
+        }
+
+        public IActionResult About()
+        {
             return View();
         }
     }
