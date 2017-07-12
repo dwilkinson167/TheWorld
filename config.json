@@ -1,5 +1,8 @@
 {
   "MailSettings": {
     "ToAddress": "Dylanwilkinson@gmail.com"
-  }
+  },
+  "ConnectionStrings": {
+    "WorldContextConnection":  "Server=(localdb)\\MSSQLLocalDb;Database=TheWorldDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  } 
 }

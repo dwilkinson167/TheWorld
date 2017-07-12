@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.StaticFilesEx;
 using TheWorld.Services;
 using Microsoft.Extensions.Configuration;
+using TheWorld.Models;
 
 namespace TheWorld
 {
@@ -45,6 +46,8 @@ namespace TheWorld
             {
                 //Implement a real Mail service
             }
+
+            services.AddDbContext<WorldContext>();
 
             services.AddMvc();
           }
